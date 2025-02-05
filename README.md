@@ -44,6 +44,10 @@ The easiest way to install both the certbot client and the certbot-s3front plugi
   ```
   And then run `pip install certbot-s3front`.
 
+#### Local?
+  **Note:** This is usefull in a case where a PR that addresses a bug is not yet merged to the master branch.
+  Clone the repository and fetch the relevent PR from the remote repository. Use the command `git fetch origin pull/<PR_NUMBER>/head:<BRANCH_NAME>`. Run the command `pip install -e .` to install the certbot s3 plugin using local files.
+
 ### How to use it
 
 To generate a certificate and install it in a CloudFront distribution:
@@ -63,6 +67,7 @@ certbot --agree-tos -a s3front_auth \
 Follow the screen prompts and you should end up with the certificate in your
 distribution. It may take a couple minutes to update.
 
+Alternatively you can run `script.sh` by replacing the placeholders with the correct values to automate the entire process.
 
 ### Automate renewal
 

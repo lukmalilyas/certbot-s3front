@@ -64,8 +64,7 @@ class Authenticator(common.Plugin, interfaces.Authenticator):
         s3 = boto3.resource('s3', region_name=self.conf('s3-region'))
 
         s3.Bucket(self.conf('s3-bucket')).put_object(Key=self._get_key(achall),
-                                                     Body=validation,
-                                                     ACL='public-read')
+                                                     Body=validation)
 
         if response.simple_verify(
                 achall.chall, achall.domain,
